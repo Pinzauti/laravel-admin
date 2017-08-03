@@ -10,7 +10,14 @@ class UserRolesSeeder extends Seeder
      * @return void
      */
 
-    private $roles = ['Administrator', 'Moderator', 'Editor', 'Squad Member', 'User'];
+    private $roles = [
+        'Owner',
+        'Administrator',
+        'Moderator',
+        'Editor',
+        'Squad Member',
+        'User'
+    ];
 
     public function run()
     {
@@ -22,6 +29,8 @@ class UserRolesSeeder extends Seeder
                 'slug' => str_slug($role),
             ]);
         }
+
+
 
     }
 }

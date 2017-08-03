@@ -17,7 +17,20 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('site_title');
             $table->string('site_description');
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->boolean('live')->defualt(1);
             $table->string('timezone');
+            $table->string('google_analytics_id')->nullable();
+
+            //Social
+            $table->string('mlg')->nullable();
+            $table->string('twitch')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('google')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
 
             $table->timestamps();
         });
