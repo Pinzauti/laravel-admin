@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/users/userdata', 'UsersController@userData')->name("user.data");
     Route::get('/users/{id}/edit', 'UsersController@edit')->name("users.edit");
     Route::patch('/users/{id}/update', 'UsersController@update')->name("users.update");
+    Route::delete('/users/{id}/destroy', 'UsersController@destroy')->name("users.destroy");
 
     /* ***   SETTINGS   *** */
     Route::get('/settings', 'SettingsController@index')->name("settings");

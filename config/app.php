@@ -170,6 +170,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         HttpOz\Roles\RolesServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
 
         /*
          * Application Service Providers...

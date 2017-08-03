@@ -46,16 +46,40 @@
 
                     ajax: '{!! route('admin.user.data') !!}',
                     columns: [
-                        { data: 'id', name: 'id' },
-                        { data: 'name', name: 'name' },
-                        { data: 'email', name: 'email' },
-                        { data: 'gender', name: 'gender' },
-                        { data: 'created_at', name: 'created_at' },
-                        { data: 'action', name: 'action', orderable: false, searchable: false }
+                        {data: 'id', name: 'id'},
+                        {data: 'name', name: 'name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'gender', name: 'gender'},
+                        {data: 'created_at', name: 'created_at'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false}
                     ]
-                });
+                }).on('click', '.delete',function (e) {
+                    e.preventDefault();
+                    var url = $(this).data('remote');
+                    // confirm then
 
-            };
+                    swal({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then(function () {
+                        $.ajax({
+                            url: url,
+                            type: 'DELETE',
+                            dataType: 'json',
+                            data: {method: '_DELETE'}
+                        }).always(function (data) {
+                            $(usersTable).DataTable().draw(false);
+                        });
+                    });
+
+
+                });
+            }
 
             $(function() {
                 datatableInit();
@@ -63,9 +87,13 @@
 
             $(window).bind('resize', function () {
                 usersTable.fnAdjustColumnSizing();
-            } );
+            });
+
+
+
 
         }).apply(this, [jQuery]);
+
 
     </script>
 @endsection
