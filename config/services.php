@@ -26,7 +26,7 @@ return [
     ],
 
     'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
+        'secret' => env('bcb43431278883464ef732af7c1b1c9abe01eb3c'),
     ],
 
     'stripe' => [
@@ -38,13 +38,13 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect' => 'http://localhost:8000/login/facebook/callback',
+        'redirect' => 'http://admin.dev/login/facebook/callback',
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_ID'),
         'client_secret' => env('TWITTER_SECRET'),
-        'redirect' => 'http://localhost:8000/login/twitter/callback',
+        'redirect' => 'http://admin.dev/login/twitter/callback',
     ],
 
 ];

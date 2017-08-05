@@ -28,9 +28,9 @@ class UsersController extends Controller
 
         //Update the user.
         $user->update([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'alias' => $request->input('alias'),
+            'name'   => $request->input('name'),
+            'email'  => $request->input('email'),
+            'alias'  => $request->input('alias'),
             'gender' => $gender[0]
         ]);
 
@@ -56,12 +56,12 @@ class UsersController extends Controller
 
         return Datatables::of($users)
             ->addColumn('action', function ($user) {
-                return '<a href="'. route('admin.users.edit', $user->id) .'" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                <button class="btn btn-xs btn-danger delete" data-remote="'. route('admin.users.destroy', $user->id) .'">Delete</button>';
+                return '<a href="' . route('admin.users.edit', $user->id) . '" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                <button class="btn btn-xs btn-danger delete" data-remote="' . route('admin.users.destroy', $user->id) . '">Delete</button>';
             })
             ->editColumn('created_at', function ($user) {
                 return $user->created_at ? with(new Carbon($user->created_at))->format('m/d/Y') : '';
             })
-            ->make(true);
+            ->make(TRUE);
     }
 }

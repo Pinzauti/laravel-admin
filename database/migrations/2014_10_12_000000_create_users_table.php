@@ -15,14 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('email')->unique();
-            $table->string('alias')->unique()->nullable();
-            $table->string('avatar');
+
             $table->string('provider');
             $table->string('provider_id')->unique();
 
             //Personal Info
+            $table->string('name');
             $table->integer('gender')->nullable();
             $table->date('birthday')->nullable();
             $table->text('about')->nullable();
@@ -45,6 +44,9 @@ class CreateUsersTable extends Migration
             $table->string('steam')->nullable();
             $table->string('website')->nullable();
 
+            //Gaming Info
+            $table->string('alias')->unique()->nullable();
+            $table->string('avatar');
 
             $table->rememberToken();
             $table->timestamps();

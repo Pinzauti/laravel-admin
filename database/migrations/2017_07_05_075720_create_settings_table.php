@@ -15,12 +15,12 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('site_title');
-            $table->string('site_description');
+            $table->string('title')->default('Your Site Title');
+            $table->string('description')->default('Your Site Description');
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
-            $table->boolean('live')->defualt(1);
-            $table->string('timezone');
+            $table->boolean('isLive')->default(1);
+            $table->string('timezone')->default('UTC');
             $table->string('google_analytics_id')->nullable();
 
             //Social

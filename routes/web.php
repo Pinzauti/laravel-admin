@@ -1,4 +1,6 @@
 <?php
+Route::get('/', 'HomeController@index')->name('home');
+
 
 /* ***   AUTHENTICATION   *** */
 Auth::routes();
@@ -25,7 +27,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 
     /* ***   SETTINGS   *** */
     Route::get('/settings', 'SettingsController@index')->name("settings");
-    Route::post('/settings', 'SettingsController@update')->name('settings.update');
+    Route::patch('/settings', 'SettingsController@update')->name('settings.update');
 
     /* ***   ARTICLES *** */
     /*Route::get('/articles', 'ArticlesController@index')->name('articles');
