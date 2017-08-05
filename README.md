@@ -14,16 +14,21 @@ mv .env.example .env
 ```laravel
 composer update
 ```
-4. Generate Application Key
+4. Install NPM Dependancies
+```
+nmp install
+```
+
+5. Generate Application Key
 ```
 php artisan key:generate
 ```
-5. Run migrations and seeds
+6. Run migrations and seeds
 ```
 php artisan migrate --seed
 ```
 
-6. Setup facebook, and twitter oAuth keys in the .env file
+7. Setup facebook, and twitter oAuth keys in the .env file
 ```
 FACEBOOK_ID=REPLACE WITH ID
 FACEBOOK_SECRET=REPLACE WITH SECRET
